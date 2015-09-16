@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include<conio.h>
 #define N 4
+
 int main()
 {
     void sym_ctl(int ALL_2048[N][N]);
@@ -25,13 +26,13 @@ int main()
     while(1)
     {   
     
-//为数据进行初始备份，并用于后续比较数据是否变化  
+/*为数据进行初始备份，并用于后续比较数据是否变化  */
 
         for(i=0;i<N;i++)
             for(j=0;j<N;j++)
                 temp_2048[i][j]=ALL_2048[i][j];
 
-//输入方向并处理
+/*输入方向并处理*/
 
         direc=getch();
         if (direc=='q'||direc=='Q')break;
@@ -75,13 +76,13 @@ int main()
             default :;
         }
         
-//留下上一次的备份
+/*留下上一次的备份*/
 
         for(i=0;i<N;i++)
             for(j=0;j<N;j++)
                 back1_2048[i][j]=temp_2048[i][j];
 
-//判断数据是否变化 ，若变化，则产生随机数
+/*判断数据是否变化 ，若变化，则产生随机数*/
 
         ifchan=0;
         for(i=0;i<N;i++)
@@ -90,7 +91,7 @@ int main()
         if(ifchan==1&&direc!='b'&&direc!='B')
             {randnewn(ALL_2048);}
 
-//输出此次操作结果
+/*输出此次操作结果*/
 
         for(i=0;i<N;i++)
            {
@@ -102,7 +103,7 @@ int main()
     return 0;
 }
 
-//中心线对称
+/*中心线对称*/
 
 void sym_ctl(int ALL_2048[N][N])
 {
@@ -116,7 +117,7 @@ void sym_ctl(int ALL_2048[N][N])
         }
 }
 
-//正向对角线对称
+/*正向对角线对称*/
 
 void sym_dia(int ALL_2048[N][N])
 {
@@ -130,7 +131,7 @@ void sym_dia(int ALL_2048[N][N])
         }
 }
 
-//反向对角线对称
+/*反向对角线对称*/
 
 void sym_bkdia(int ALL_2048[N][N])
 {
@@ -144,7 +145,7 @@ void sym_bkdia(int ALL_2048[N][N])
         }
 }
 
-//整体数据左移
+/*整体数据左移*/
 
 void leftall(int ALL_2048[N][N])
 {
@@ -154,7 +155,7 @@ void leftall(int ALL_2048[N][N])
         leftadd(ALL_2048[i]);
 }
 
-//单行数据整体左移
+/*单行数据整体左移*/
 
 void leftadd(int array[N])
 {
@@ -201,7 +202,7 @@ void leftadd(int array[N])
     }
 }
 
-//随机产生2或4
+/*随机产生2或4*/
 
 void randnewn(int ALL_2048[N][N])
 {
